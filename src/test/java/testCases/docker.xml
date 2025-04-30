@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Master">
+    <groups>
+        <run>
+            <include name="Master"/>
+        </run>
+    </groups>
+
+    <listeners>
+        <listener class-name="utilities.extentReportManager"/>
+    </listeners>
+
+
+    <test name="ChromeTest">
+        <parameter name="os" value="Linux"/>
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+                <class name="testCases.TC001_Login_Test"/>
+        </classes>
+    </test>
+
+    <test name="FirefoxTest">
+        <parameter name="os" value="Linux"/>
+        <parameter name="browser" value="firefox"/>
+
+        <classes>
+            <class name="testCases.TC001_Login_Test"/>
+        </classes>
+
+
+    </test>
+</suite>
+

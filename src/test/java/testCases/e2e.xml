@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Main">
+
+    <listeners>
+        <listener class-name="utilities.extentReportManager"/>
+    </listeners>
+
+
+    <test name="Sanity">
+        <parameter name="os" value="Windows"/>
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="testCases.TC004_End_two_End"/>
+        </classes>
+    </test>
+</suite>

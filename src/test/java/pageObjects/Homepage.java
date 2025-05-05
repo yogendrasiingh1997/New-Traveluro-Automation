@@ -3,6 +3,12 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import java.time.Duration;
+import java.util.List;
 
 public class Homepage extends Basepage {
 
@@ -23,7 +29,7 @@ public class Homepage extends Basepage {
     WebElement search;
 
     @FindBy(xpath = "//ul[@id='searchInputAutocompleteList']/li/a")
-    WebElement location_list;
+    List<WebElement> location_list;
 
 
     //Calendar
@@ -36,8 +42,8 @@ public class Homepage extends Basepage {
     @FindBy(xpath = "//th[@class='next available']")
     WebElement next_month;
 
-    @FindBy(xpath = "//body[1]/div[5]/div[1]/div[2]/table[1]/tbody[1]/tr/td")
-    WebElement date;
+    @FindBy(xpath = "//div[@class='calendar left']//tbody/tr/td")
+    List<WebElement> date;
 
 //    @FindBy(xpath = "//button[@id='btnGuestDropDown']")
 //    WebElement guest;
@@ -70,36 +76,67 @@ public class Homepage extends Basepage {
     public void locationName(String locationName)
     {
         search.sendKeys(locationName);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(location_list.get(0)));
+
+        List<WebElement> options= location_list;
+        for(WebElement place: options)
+        {
+            if (place.getText().contains(locationName))
+            {
+                System.out.println("Destination:"  + " " + place.getText());
+                place.click();
+                break;
+            }
+            else
+            {
+                Assert.fail();
+            }
+        }
+
     }
 
-    public void placeList()
-    {
-        location_list.click();
-    }
 
-    public void date()
+    public void date(String month_Year, String check_in, String check_out )
     {
         calendar.click();
-    }
 
-    public void currentYear()
-    {
-        current_date.getText();
-    }
 
-    public void nextMonth()
-    {
-        next_month.click();
-    }
+        while(true)
+        {
+            String currentMonth=current_date.getText();  //take latest date
+            if(currentMonth.equals(month_Year))
+            {
+                    break;
+            }
 
-    public  void startDate()
-    {
-        date.click();
-    }
+            next_month.click();
+        }
 
-    public void endDate()
-    {
-        date.click();
+        //Checkin date
+        List<WebElement> checkIn= date;
+        for(WebElement startDate: date)
+        {
+            if(startDate.getText().equals(check_in))
+            {
+                System.out.println("Check_in: " + startDate.getText() +" " +month_Year);
+                startDate.click();
+                break;
+            }
+        }
+
+        //Checkout date
+        List<WebElement> checkOut= date;
+        for(WebElement endDate: date)
+        {
+            if(endDate.getText().equals(check_out))
+            {
+                System.out.println("Check_out: " + endDate.getText() +" " +month_Year);
+                endDate.click();
+                break;
+            }
+        }
+
     }
 
 

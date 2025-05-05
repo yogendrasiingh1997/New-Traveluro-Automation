@@ -26,7 +26,8 @@ public class extentReportManager implements ITestListener
         public ExtentSparkReporter sparkReporter;
         public ExtentReports extent;
         public ExtentTest test;
-        public String report= "C://Users//ADMIN//Desktop/report//testReport" + timestamp+ ".html";
+        public String report= "C://Users//ADMIN//IdeaProjects//New Traveluro Automation//reports/" + timestamp+ ".html";
+
 
         public void onStart(ITestContext context)
         {

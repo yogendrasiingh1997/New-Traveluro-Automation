@@ -8,12 +8,8 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
@@ -21,7 +17,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -37,8 +32,9 @@ public class Base_Class {
     public Logger logger; //log4j
     public Properties p;
 
-    @BeforeClass(groups = {"Sanity", "Master", "Regression"})
     @Parameters({"os","browser"})
+    @BeforeClass(groups = {"Sanity", "Master", "Regression"})
+
 
     public void setup( String os, String browser) throws IOException
 
@@ -140,8 +136,10 @@ public class Base_Class {
     public String capturescreen(String tname)
     {
 
-        String timestamp= new SimpleDateFormat("yyyymmdd").format(new Date());
-        String Targetfilepath= "C://Users//ADMIN//Desktop//Screenshot/" +tname+ "_"+ timestamp+ ".png";
+        String timestamp= new SimpleDateFormat("yyyy-MM-dd_HH-mm").format(new Date());
+        String Targetfilepath= "C://Users//ADMIN//IdeaProjects//New Traveluro Automation//screenshot/" +tname+ "_"+ timestamp+ ".png";
+
+
 
 
         TakesScreenshot ts= (TakesScreenshot) driver;

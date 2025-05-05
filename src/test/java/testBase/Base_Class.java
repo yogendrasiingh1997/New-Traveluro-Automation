@@ -101,7 +101,8 @@ public class Base_Class {
         driver.manage().window().maximize();
     }
 
-    private boolean isUrlReachable(String url) {
+    private boolean isUrlReachable(String url)
+    {
         return false;
     }
 
@@ -114,22 +115,22 @@ public class Base_Class {
 
     public String randomString()
     {
-        String generatingemail= RandomStringUtils.randomAlphabetic(3);
-        return generatingemail;
+        String generatingEmail= RandomStringUtils.randomAlphabetic(3);
+        return generatingEmail;
     }
 
     public String randomNumber()
     {
-        String generatingNumber= RandomStringUtils.randomAlphanumeric(10);
-        return generatingNumber;
+        String generatingNumbers= RandomStringUtils.randomAlphanumeric(10);
+        return generatingNumbers;
     }
 
     public String randomAlphanumeric()
     {
-        String ramdonString1= RandomStringUtils.randomAlphabetic(1).toUpperCase();
-        String ramdonString= RandomStringUtils.randomAlphabetic(5);
-        String ramdomNumber= RandomStringUtils.randomNumeric(3);
-        return(ramdonString1+ramdonString+"@"+ ramdomNumber);
+        String ramdomString1= RandomStringUtils.randomAlphabetic(1).toUpperCase();
+        String ramdomString= RandomStringUtils.randomAlphabetic(5);
+        String ramdomNumbers= RandomStringUtils.randomNumeric(3);
+        return(ramdomString1+ramdomString+"@"+ ramdomNumbers);
 
     }
 
@@ -138,16 +139,11 @@ public class Base_Class {
 
         String timestamp= new SimpleDateFormat("yyyy-MM-dd_HH-mm").format(new Date());
         String Targetfilepath= "C://Users//ADMIN//IdeaProjects//New Traveluro Automation//screenshot/" +tname+ "_"+ timestamp+ ".png";
-
-
-
-
         TakesScreenshot ts= (TakesScreenshot) driver;
         File sourceFile= ts.getScreenshotAs(OutputType.FILE);
         File  Targetfile= new File(Targetfilepath);
 
         sourceFile.renameTo(Targetfile);
-
         return Targetfilepath;
     }
 }

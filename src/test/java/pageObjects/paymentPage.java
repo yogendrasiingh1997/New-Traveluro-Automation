@@ -1,6 +1,5 @@
 package pageObjects;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -78,19 +77,16 @@ public class paymentPage extends Basepage {
     WebElement loader;
 
 
-
-    public void loderIcon() throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, 500);");
-
+    public void loderIcon() throws InterruptedException
+    {
         WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.invisibilityOf(loader));
         Thread.sleep(5000);
     }
 
-
     public void fillPersonalDetails(String fName, String lName, String emailAddr, String confirmEmailAddr,
                                     String phone, String zip, String request) {
+
         firstName.sendKeys(fName);
         lastName.sendKeys(lName);
         email.sendKeys(emailAddr);
@@ -98,10 +94,6 @@ public class paymentPage extends Basepage {
         phoneNumber.sendKeys(phone);
         zipCode.sendKeys(zip);
         specialRequest.sendKeys(request);
-    }
-
-    public void continueBtn()
-    {
         coninue.click();
     }
 

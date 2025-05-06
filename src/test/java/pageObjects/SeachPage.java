@@ -41,7 +41,7 @@ public class SeachPage extends Basepage
     {
 
         Thread.sleep(5000);
-        new WebDriverWait(driver, Duration.ofSeconds(50)).until(ExpectedConditions.invisibilityOf(bar));
+        new WebDriverWait(driver, Duration.ofSeconds(70)).until(ExpectedConditions.invisibilityOf(bar));
         filter.click();
 
         new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(low));

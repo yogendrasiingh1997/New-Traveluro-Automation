@@ -8,8 +8,6 @@ import testBase.Base_Class;
 
 public class TC002_Signup_Test extends Base_Class {
 
-
-
     @Test(groups = {"Regression", "Master"})
     public  void signup() throws InterruptedException
     {
@@ -28,17 +26,6 @@ public class TC002_Signup_Test extends Base_Class {
 
             su.personalDetails(fullName,email, password, password);
             su.create();
-//
-//            su.name(randomString() + " " + randomString());// dynamic
-//            su.user_email(randomString() + "@gmail.com"); //dynamic
-//
-//            String password = randomAlphanumeric(); // pw store in variable
-//            su.pass(password);
-//            su.con_pass(password);
-//            su.pp();
-//            su.tc();
-//            su.create();
-
 
             //Login verification
 
@@ -72,11 +59,5 @@ public class TC002_Signup_Test extends Base_Class {
             logger.debug("debug log");
             Assert.fail("Test failed due to exception: " + e.getMessage());
         }
-
-
-
-
     }
-
-
 }

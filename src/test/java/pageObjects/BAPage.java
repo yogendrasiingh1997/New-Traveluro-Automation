@@ -32,9 +32,6 @@ public class BAPage extends Basepage
 //    @FindBy(xpath = "//div[@class='room-choices-details']//div[@class='col-sm-12']//div[@class='row']")
 //    List<WebElement> freeCancellation;
 
-    @FindBy(className = "book-now-col")
-    WebElement bookBtn;
-
     public void switchwindow()
     {
         //Switch window
@@ -78,17 +75,20 @@ public class BAPage extends Basepage
     {
         try
         {
-            List<WebElement> getDeals=freeCancellation;
+            List<WebElement> getDeals= freeCancellation;
             for(WebElement deal: getDeals)
             {
                 if(deal.getText().contains("Free Cancellation By"))
                 {
-                   WebElement bookButton= deal.findElement(By.className("book-now-col"));
-                   bookButton.click();
+                    WebElement bookBtn = deal.findElement(By.className("book-now-col"));
+                    bookBtn.click();
                    System.out.println("✅ Free cancellation deal selected.");
-                   return;
+                   break;
                 }
-                System.out.println("⚠️ No free cancellation deal found. Only non-refundable deals available.");
+                else
+                {
+                    System.out.println("non ref deals present on Ba page");
+                }
             }
         }
         catch (Exception e)

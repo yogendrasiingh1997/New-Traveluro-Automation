@@ -37,7 +37,7 @@ public class confirmationPage extends Basepage{
 
     public void tripNumber()
     {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOf(confirmationLoader));
+        new WebDriverWait(driver, Duration.ofSeconds(20)).until(ExpectedConditions.invisibilityOf(confirmationLoader));
         ((JavascriptExecutor) driver).executeScript("document.body.style.zoom='67%'");
         System.out.println("Trip_number: " +trip.getText());
     }

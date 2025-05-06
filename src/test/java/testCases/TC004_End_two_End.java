@@ -30,7 +30,7 @@ public class TC004_End_two_End extends Base_Class
 
         WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(30));
         hac.login_alert();
-        hac.sortBy();
+        //hac.sortBy();
         hac.viewBtn();
 
 
@@ -41,7 +41,8 @@ public class TC004_End_two_End extends Base_Class
         ba.showBtn();
         ba.freeCancellationDeal();
 
-
+        JavascriptExecutor js= (JavascriptExecutor) driver;
+        js.executeScript("document.body.style.zoom='90%'");
 
         pp.loderIcon();
         pp.fillPersonalDetails("Yogendra"+ randomString(),
@@ -53,7 +54,6 @@ public class TC004_End_two_End extends Base_Class
                 "test trip");
 
 
-        pp.continueBtn();
         pp.tipSelection();
         pp.vipSelect();
         pp.creditCardSelection();

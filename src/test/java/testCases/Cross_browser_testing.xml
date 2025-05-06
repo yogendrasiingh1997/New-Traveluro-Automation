@@ -38,4 +38,5 @@
             <class name="testCases.TC001_Login_Test"/>
         </classes>
     </test>
+
 </suite>

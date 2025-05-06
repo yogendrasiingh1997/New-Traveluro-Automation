@@ -54,8 +54,7 @@ public class BAPage extends Basepage
 
     public void baPageLoader()
     {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-        wait.until(ExpectedConditions.invisibilityOf(loader));
+        new WebDriverWait(driver, Duration.ofSeconds(30)).until(ExpectedConditions.invisibilityOf(loader));
         JavascriptExecutor js= (JavascriptExecutor) driver;
         js.executeScript("document.body.style.zoom='67%'");
     }
@@ -70,7 +69,7 @@ public class BAPage extends Basepage
             }
             catch (Exception e)
             {
-                System.out.println("Only One deal present");
+                System.out.println("Unable to click 'Show More'. Possibly only one deal is present.");
             }
         }
     }
@@ -86,33 +85,16 @@ public class BAPage extends Basepage
                 {
                    WebElement bookButton= deal.findElement(By.className("book-now-col"));
                    bookButton.click();
-                   System.out.println("Yes!! we have free cancellation deals");
-                   break;
-
+                   System.out.println("✅ Free cancellation deal selected.");
+                   return;
                 }
-                else
-                {
-                    System.out.println("non ref deals present on Ba page");
-                }
+                System.out.println("⚠️ No free cancellation deal found. Only non-refundable deals available.");
             }
-
-
         }
         catch (Exception e)
         {
-            System.out.println(e.getMessage());
+            System.out.println("❌ Error while selecting free cancellation deal: " + e.getMessage());
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 
 }

@@ -33,8 +33,7 @@ public class SeachPage extends Basepage
 
     public void login_alert()
     {
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(alert));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(alert));
         alert.click();
     }
 
@@ -42,19 +41,16 @@ public class SeachPage extends Basepage
     {
 
         Thread.sleep(5000);
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(50));
-        wait.until(ExpectedConditions.invisibilityOf(bar));
+        new WebDriverWait(driver, Duration.ofSeconds(50)).until(ExpectedConditions.invisibilityOf(bar));
         filter.click();
 
-        WebDriverWait wait1= new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOf(low));
+        new WebDriverWait(driver, Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(low));
         low.click();
     }
 
     public void viewBtn()
     {
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(view));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(view));
         view.click();
     }
 }

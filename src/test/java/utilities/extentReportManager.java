@@ -5,7 +5,6 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import org.apache.commons.mail.ImageHtmlEmail;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -13,8 +12,6 @@ import testBase.Base_Class;
 
 import java.awt.*;
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -27,7 +24,6 @@ public class extentReportManager implements ITestListener
         public ExtentReports extent;
         public ExtentTest test;
         public String report= "C://Users//ADMIN//IdeaProjects//New Traveluro Automation//reports/" + timestamp+ ".html";
-
 
         public void onStart(ITestContext context)
         {
@@ -54,7 +50,6 @@ public class extentReportManager implements ITestListener
                 {
                         extent.setSystemInfo("Groups", includegroups.toString());
                 }
-
         }
 
         public void onTestSuccess(ITestResult result)
@@ -81,9 +76,6 @@ public class extentReportManager implements ITestListener
                 {
                         e.printStackTrace();
                 }
-
-
-
         }
 
         public void onTestSkipped(ITestResult result)

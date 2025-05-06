@@ -23,7 +23,7 @@ public class TC004_End_two_End extends Base_Class
 
         hp.banner();
         hp.cookie_banner();
-        hp.locationName(p.getProperty("location"));
+        hp.enterLocation(p.getProperty("location"));
         hp.date(p.getProperty("month_Year"),p.getProperty("checkIn"),p.getProperty("checkOut"));
         hp.Go();
 
@@ -44,21 +44,25 @@ public class TC004_End_two_End extends Base_Class
 
 
         pp.loderIcon();
-        pp.fName("Yogendra"+ randomString());
-        pp.lName("Singh");
-        pp.emailAddress("yogendra@holisto.com");
-        pp.confirmEmailAddress("yogendra@holisto.com");
-        pp.setNumber("2154567890");
-        pp.setZipCode("45456");
-        pp.setSpecialRequest("test trip");
+        pp.fillPersonalDetails("Yogendra"+ randomString(),
+                "Singh",
+                "yogendra@holisto.com",
+                "yogendra@holisto.com",
+                "2154567890",
+                "45456",
+                "test trip");
+
+
         pp.continueBtn();
         pp.tipSelection();
         pp.vipSelect();
         pp.creditCardSelection();
-        pp.setCardNumber("5555555555554444");
-        pp.setMonth("12");
-        pp.setYear("2026");
-        pp.setCvv("123");
+
+        pp.enterCardDetails(
+                "5555555555554444",
+                "12",
+                "2026",
+                "123");
         pp.roomBookBtn();
 
 

@@ -21,20 +21,23 @@ public class TC002_Signup_Test extends Base_Class {
 
             Signup su = new Signup(driver);
             Thread.sleep(2000);
-//        su.name("Abb Vbb"); // hard coded
-//        su.user_email("abc9696@gmail.com"); //hard coded
-//        su.pass("Abcd@1234");
-//        su.con_pass("Abcd@1234");
 
-            su.name(randomString() + " " + randomString());// dynamic
-            su.user_email(randomString() + "@gmail.com"); //dynamic
+            String fullName= randomString() + " " + randomString();
+            String email= randomString() + "@gmail.com";
+            String password = randomAlphanumeric();
 
-            String password = randomAlphanumeric(); // pw store in variable
-            su.pass(password);
-            su.con_pass(password);
-            su.pp();
-            su.tc();
+            su.personalDetails(fullName,email, password, password);
             su.create();
+//
+//            su.name(randomString() + " " + randomString());// dynamic
+//            su.user_email(randomString() + "@gmail.com"); //dynamic
+//
+//            String password = randomAlphanumeric(); // pw store in variable
+//            su.pass(password);
+//            su.con_pass(password);
+//            su.pp();
+//            su.tc();
+//            su.create();
 
 
             //Login verification

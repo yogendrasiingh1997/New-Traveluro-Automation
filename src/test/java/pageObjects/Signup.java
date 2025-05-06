@@ -42,35 +42,45 @@ public class Signup extends Basepage{
     WebElement hower;
 
 
-    public void name(String name)
+    public void personalDetails (String name,String user_email,String pass, String confPass)
     {
         full_name.sendKeys(name);
-    }
-
-    public void user_email(String user_email)
-    {
-     email.sendKeys(user_email);
-    }
-
-    public void pass(String pass)
-    {
+        email.sendKeys(user_email);
         password.sendKeys(pass);
-    }
-
-    public void  con_pass(String pass)
-    {
         confirm_password.sendKeys(pass);
-    }
-
-    public void tc()
-    {
+        privacy.click();
         terms.click();
     }
 
-    public void pp()
-    {
-        privacy.click();
-    }
+//    public void name(String name)
+//    {
+//        full_name.sendKeys(name);
+//    }
+//
+//    public void user_email(String user_email)
+//    {
+//     email.sendKeys(user_email);
+//    }
+//
+//    public void pass(String pass)
+//    {
+//        password.sendKeys(pass);
+//    }
+//
+//    public void  con_pass(String pass)
+//    {
+//        confirm_password.sendKeys(pass);
+//    }
+//
+//    public void tc()
+//    {
+//        terms.click();
+//    }
+//
+//    public void pp()
+//    {
+//        privacy.click();
+//    }
 
     public void create()
     {
@@ -79,10 +89,6 @@ public class Signup extends Basepage{
 
     public boolean logoutDisplayed()
     {
-//        act= new Actions(driver);
-//        act.moveToElement(hower).perform();
-//        logout_btn.isDisplayed();
-//        return logout_btn.isDisplayed();
         try
         {
             act = new Actions(driver);
@@ -92,15 +98,13 @@ public class Signup extends Basepage{
         }
         catch (Exception e)
         {
-            System.out.println("❌ Exception while verifying logout button: " + e.getMessage());
+            System.out.println("❌ Logout button not displayed: " + e.getMessage());
             return false;
         }
-
     }
 
     public void logout_click()
     {
         logout_btn.click();
     }
-
 }

@@ -9,9 +9,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends Basepage {
 
-    Actions act=new Actions(driver);
-
-     public LoginPage(WebDriver driver)
+    public LoginPage(WebDriver driver)
     {
         super(driver);
     }
@@ -31,6 +29,7 @@ public class LoginPage extends Basepage {
     @FindBy(xpath = "//a[@id='sm-15236008200698604-3']")
     WebElement hower;
 
+                            // === Actions ===
 
     public void email(String email)
     {
@@ -47,25 +46,6 @@ public class LoginPage extends Basepage {
         submit_btn.click();
     }
 
-//    public boolean logout()
-//    {
-//        act= new Actions(driver);
-//        WebElement logout_button= hower;
-//        act.moveToElement(logout_button).perform();
-//        logout_btn.isDisplayed();
-//
-//        try
-//        {
-//            return logout_btn.isDisplayed();
-//        }
-//        catch (Exception e)
-//        {
-//            return false;
-//        }
-//    }
-
-
-
     public boolean logout() {
         try {
             JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -77,12 +57,8 @@ public class LoginPage extends Basepage {
             return false;
         }
     }
-
-
-
     public void logoutClick()
     {
         logout_btn.click();
     }
-
 }

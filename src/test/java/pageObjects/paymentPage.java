@@ -33,10 +33,10 @@ public class paymentPage extends Basepage {
     WebElement zipCode;
 
     @FindBy(xpath = "//textarea[@id='SpecialRequest']")
-    WebElement special;
+    WebElement specialRequest;
 
     @FindBy(xpath = "//input[@id='PhoneNumber']")
-    WebElement number;
+    WebElement phoneNumber;
 
     @FindBy(xpath = "//a[normalize-space()='Continue']")
     WebElement coninue;
@@ -89,39 +89,15 @@ public class paymentPage extends Basepage {
     }
 
 
-    public void fName(String fName)
-    {
+    public void fillPersonalDetails(String fName, String lName, String emailAddr, String confirmEmailAddr,
+                                    String phone, String zip, String request) {
         firstName.sendKeys(fName);
-    }
-
-    public void lName(String lName)
-    {
         lastName.sendKeys(lName);
-    }
-
-    public void emailAddress (String emailAddress)
-    {
-        email.sendKeys(emailAddress);
-    }
-
-    public void confirmEmailAddress (String confirmEmailAddress)
-    {
-        confirmEmail.sendKeys(confirmEmailAddress);
-    }
-
-    public void setZipCode(String setZipCode)
-    {
-        zipCode.sendKeys(setZipCode);
-    }
-
-    public void setSpecialRequest(String setSpecialRequest)
-    {
-        special.sendKeys(setSpecialRequest);
-    }
-
-    public void setNumber(String setNumber)
-    {
-        number.sendKeys(setNumber);
+        email.sendKeys(emailAddr);
+        confirmEmail.sendKeys(confirmEmailAddr);
+        phoneNumber.sendKeys(phone);
+        zipCode.sendKeys(zip);
+        specialRequest.sendKeys(request);
     }
 
     public void continueBtn()
@@ -161,24 +137,12 @@ public class paymentPage extends Basepage {
         cardOption.click();
     }
 
-    public void setCardNumber(String  setCardNumber)
+    public void enterCardDetails(String number, String expMonth, String expYear, String securityCode)
     {
-        cardNumber.sendKeys(setCardNumber);
-    }
-
-    public void setMonth(String setMonth)
-    {
-        month.sendKeys(setMonth);
-    }
-
-    public void setYear(String setYear)
-    {
-       year.sendKeys(setYear);
-    }
-
-    public void setCvv(String setCvv)
-    {
-        cvv.sendKeys(setCvv);
+        cardNumber.sendKeys(number);
+        month.sendKeys(expMonth);
+        year.sendKeys(expYear);
+        cvv.sendKeys(securityCode);
     }
 
     public void roomBookBtn()

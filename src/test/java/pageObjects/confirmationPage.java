@@ -27,8 +27,7 @@ public class confirmationPage extends Basepage{
 
     public void loderIcon()
     {
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.invisibilityOf(loader));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOf(loader));
     }
 
     public void confirmationURL()
@@ -38,10 +37,8 @@ public class confirmationPage extends Basepage{
 
     public void tripNumber()
     {
-        WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.invisibilityOf(confirmationLoader));
-        JavascriptExecutor js= (JavascriptExecutor) driver;
-        js.executeScript("document.body.style.zoom='67%'");
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOf(confirmationLoader));
+        ((JavascriptExecutor) driver).executeScript("document.body.style.zoom='67%'");
         System.out.println("Trip_number: " +trip.getText());
     }
 }

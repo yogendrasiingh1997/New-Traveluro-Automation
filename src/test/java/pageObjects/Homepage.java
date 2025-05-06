@@ -29,7 +29,7 @@ public class Homepage extends Basepage {
     WebElement search;
 
     @FindBy(xpath = "//ul[@id='searchInputAutocompleteList']/li/a")
-    List<WebElement> location_list;
+    List<WebElement> locationSuggestions;
 
 
     //Calendar
@@ -61,7 +61,7 @@ public class Homepage extends Basepage {
     WebElement newUser;
 
 
-
+    // === Actions====
 
     public void banner()
     {
@@ -73,34 +73,28 @@ public class Homepage extends Basepage {
         cookies.click();
     }
 
-    public void locationName(String locationName)
+    public void enterLocation(String locationName)
     {
         search.sendKeys(locationName);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(location_list.get(0)));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(locationSuggestions.get(0)));
 
-        List<WebElement> options= location_list;
-        for(WebElement place: options)
+        List<WebElement> options= locationSuggestions;
+        for(WebElement suggestion: locationSuggestions)
         {
-            if (place.getText().contains(locationName))
+            if (suggestion.getText().contains(locationName))
             {
-                System.out.println("Destination:"  + " " + place.getText());
-                place.click();
-                break;
-            }
-            else
-            {
-                Assert.fail();
+                System.out.println("Destination:"  + " " + suggestion.getText());
+                suggestion.click();
+                return;
             }
         }
-
+        Assert.fail("Location not found in suggestion list: " + locationName);
     }
 
 
     public void date(String month_Year, String check_in, String check_out )
     {
         calendar.click();
-
 
         while(true)
         {
@@ -109,7 +103,6 @@ public class Homepage extends Basepage {
             {
                     break;
             }
-
             next_month.click();
         }
 
@@ -136,9 +129,7 @@ public class Homepage extends Basepage {
                 break;
             }
         }
-
     }
-
 
     public void Go()
     {

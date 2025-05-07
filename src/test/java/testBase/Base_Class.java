@@ -106,11 +106,11 @@ public class Base_Class {
         return false;
     }
 
-    @AfterClass (groups = {"Sanity", "Master", "Regression"})
-    public void tearDown()
-    {
-        driver.quit();
-    }
+//    @AfterClass (groups = {"Sanity", "Master", "Regression"})
+//    public void tearDown()
+//    {
+//        driver.quit();
+//    }
 
 
     public String randomString()

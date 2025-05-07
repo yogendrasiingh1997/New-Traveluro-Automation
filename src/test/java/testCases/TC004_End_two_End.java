@@ -41,8 +41,7 @@ public class TC004_End_two_End extends Base_Class
         ba.showBtn();
         ba.freeCancellationDeal();
 
-        JavascriptExecutor js= (JavascriptExecutor) driver;
-        js.executeScript("document.body.style.zoom='90%'");
+
 
         pp.loderIcon();
         pp.fillPersonalDetails("Yogendra"+ randomString(),
@@ -53,6 +52,7 @@ public class TC004_End_two_End extends Base_Class
                 "45456",
                 "test trip");
 
+        ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0);");
 
         pp.tipSelection();
         pp.vipSelect();

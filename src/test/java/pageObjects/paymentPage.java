@@ -15,7 +15,6 @@ public class paymentPage extends Basepage {
         super(driver);
     }
 
-
     @FindBy(xpath = "//input[@id='FirstName']")
     WebElement firstName;
 

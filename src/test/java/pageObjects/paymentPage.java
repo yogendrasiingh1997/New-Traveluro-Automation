@@ -75,7 +75,6 @@ public class paymentPage extends Basepage {
     @FindBy(xpath = "//img[@src='/assets/images/Wheel-only-transparent-reapet.gif']")
     WebElement loader;
 
-
     public void loderIcon() throws InterruptedException
     {
         WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));

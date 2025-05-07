@@ -119,7 +119,6 @@ public class paymentPage extends Basepage {
         }
     }
 
-
     public void tipSelection()
     {
         tip.click();

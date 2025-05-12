@@ -73,6 +73,4 @@ public class TC004_End_two_End extends Base_Class
         capturescreen("Confirmation page");
 
     }
-
-
 }

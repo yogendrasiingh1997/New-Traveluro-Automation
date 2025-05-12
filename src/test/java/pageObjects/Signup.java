@@ -52,36 +52,6 @@ public class Signup extends Basepage{
         terms.click();
     }
 
-//    public void name(String name)
-//    {
-//        full_name.sendKeys(name);
-//    }
-//
-//    public void user_email(String user_email)
-//    {
-//     email.sendKeys(user_email);
-//    }
-//
-//    public void pass(String pass)
-//    {
-//        password.sendKeys(pass);
-//    }
-//
-//    public void  con_pass(String pass)
-//    {
-//        confirm_password.sendKeys(pass);
-//    }
-//
-//    public void tc()
-//    {
-//        terms.click();
-//    }
-//
-//    public void pp()
-//    {
-//        privacy.click();
-//    }
-
     public void create()
     {
         create_acc.click();

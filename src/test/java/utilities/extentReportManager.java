@@ -93,8 +93,8 @@ public class extentReportManager implements ITestListener
 
                 //for open the report automatically
 
-                String pathofextentReport= report;
-                File extentReport= new File(pathofextentReport);
+                String pathOfExtentReport= report;
+                File extentReport= new File(pathOfExtentReport);
 
                 try
                 {
@@ -121,10 +121,7 @@ public class extentReportManager implements ITestListener
 //                {
 //                        e.printStackTrace();
 //                }
-
-
         }
-
 }
 
 

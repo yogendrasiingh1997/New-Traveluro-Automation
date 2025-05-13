@@ -8,10 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class paymentPage extends Basepage
+public class OldPaymentPage extends Basepage
 {
 
-    public paymentPage(WebDriver driver)
+    public OldPaymentPage(WebDriver driver)
     {
         super(driver);
     }
@@ -37,20 +37,8 @@ public class paymentPage extends Basepage
     @FindBy(xpath = "//input[@id='PhoneNumber']")
     WebElement phoneNumber;
 
-    @FindBy(xpath = "//a[normalize-space()='Continue']")
-    WebElement coninue;
-
     @FindBy(xpath = "//span[@class='basic-services-text text-black d-block']")
     WebElement vip;
-
-    @FindBy(xpath = "//li[@class='clearfix']/div[@class='non-cancelation clearfix']")
-    WebElement nonRefText;
-
-    @FindBy(xpath = "//label[contains(text(),'No thanks, I’ll risk it')]")
-    WebElement cgDecline;
-
-    @FindBy(xpath = "//div[@class='trip-protection-section position-relative']//a[@class='btn-effect btn-lg btn-payment-continue btn-block text-center']")
-    WebElement cgContinue;
 
     @FindBy(xpath = "//button[@id='No_Tip']")
     WebElement tip;
@@ -76,6 +64,7 @@ public class paymentPage extends Basepage
     @FindBy(xpath = "//img[@src='/assets/images/Wheel-only-transparent-reapet.gif']")
     WebElement loader;
 
+
     public void loderIcon() throws InterruptedException
     {
         WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -93,7 +82,6 @@ public class paymentPage extends Basepage
         phoneNumber.sendKeys(phone);
         zipCode.sendKeys(zip);
         specialRequest.sendKeys(request);
-        coninue.click();
     }
 
     public void vipSelect()
@@ -101,20 +89,6 @@ public class paymentPage extends Basepage
         WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(vip));
         vip.click();
-    }
-
-    public void insurance()
-    {
-        if(nonRefText.isDisplayed())
-        {
-            cgDecline.click();
-            cgContinue.click();
-        }
-        else
-        {
-            System.out.println("No insurance is presnt");
-
-        }
     }
 
     public void tipSelection()
@@ -139,8 +113,5 @@ public class paymentPage extends Basepage
     {
         bookButton.click();
     }
-
-
-
 
 }
